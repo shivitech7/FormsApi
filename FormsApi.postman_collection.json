@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "d9e6ad43-4cc0-472d-ac75-387680b22624",
+		"name": "FormsApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "documents",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "document",
+									"type": "file",
+									"src": "/home/shivani/Downloads/crypto.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/documents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"documents"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "speakers",
+			"item": [
+				{
+					"name": "create speaker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"shivani Agarwal\",\n    \"about\": \"Speaker of this event.\",\n    \"image\": \"uploads/document-1642418953494.png\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/speakers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"speakers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete speaker",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/speakers/61e7f4739eec2d49e368063d?eventId=61e7f51e9eec2d49e3680643",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"speakers",
+								"61e7f4739eec2d49e368063d"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "61e7f51e9eec2d49e3680643"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch speakers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/speakers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"speakers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "moderators",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Drishti Jain\",\n    \"about\": \"Moderator of this event.\",\n    \"image\": \"uploads/document-1642419071607.jpeg\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/moderators",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"moderators"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "upload events",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"An event title\",\n    \"speaker\": [\n        \"61e5534f206c7917816007f9\"\n    ],\n    \"moderator\": [\n        \"61e55393206c7917816007fd\"\n    ],\n    \"about\": \"this is an event\",\n    \"time\": {\n        \"from\": \"10:00 AM\",\n        \"to\": \"11:00 AM\"\n    },\n    \"organisers\": [\n        \"organiser1\",\n        \"organiser2\"\n    ],\n    \"tags\": [\n        \"tag1\"\n    ],\n    \"reading_material\": \"asdbhfbubfhdbvhfbyfevbhfbheb\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/events/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"events",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update event",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"An event title for current event has been created for this event\",\n    \"speaker\": [\n        \"61e7f00c9eec2d49e368062a\"\n    ],\n    \"moderator\": [\n        \"61e7f0589eec2d49e368062e\"\n    ],\n    \"about\": \"this is an event\",\n    \"time\": {\n        \"from\": \"10:00 AM\",\n        \"to\": \"11:00 AM\"\n    },\n    \"organisers\": [\n        \"organiser1\",\n        \"organiser2\"\n    ],\n    \"tags\": [\n        \"tag1\"\n    ],\n    \"reading_material\": \"asdbhfbubfhdbvhfbyfevbhfbheb\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/events/61e7f0d49eec2d49e3680630",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"events",
+								"61e7f0d49eec2d49e3680630"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/events/61e6ab4b114c8acb5f0cf7a6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"events",
+								"61e6ab4b114c8acb5f0cf7a6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
